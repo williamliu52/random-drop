@@ -17,9 +17,9 @@ def main():
     while linkChanged is False:
         request = make_request(link)
         response = BeautifulSoup(request.content, 'html.parser')
-        section = response.find('p', class_='select-color-1')
-        # section = response.find('p', { 'data-altcopy' : 'product_coming_soon_1'})
-        if section is not None:
+        # section = response.find('p', class_='select-color-1')
+        section = response.find('p', { 'data-altcopy' : 'product_coming_soon_1'})
+        if section is None:
             linkChanged = True
     open_url(link)
 
